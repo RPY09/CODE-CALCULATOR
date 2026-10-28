@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 :root {
   --page-bg: #dfe3f3;
   --panel-bg: #e7e8f0;
@@ -29,20 +28,24 @@ body {
 
 body {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow-x: hidden;
 }
 
 button {
   font: inherit;
+  border: none;
 }
 
 .page-shell {
-  width: min(100vw, 380px);
-  padding: 14px 10px 18px;
+  width: min(100%, 390px);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
 }
 
 .calculator {
@@ -56,43 +59,50 @@ button {
 }
 
 .display-wrap {
-  min-height: 110px;
-  margin-bottom: 16px;
+  min-height: 120px;
+  margin-bottom: 18px;
   padding: 12px 12px 10px;
-  border-radius: 16px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.12);
   box-shadow:
     inset 8px 8px 18px rgba(255, 255, 255, 0.7),
     inset -10px -10px 20px rgba(165, 170, 200, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .expression {
-  min-height: 28px;
+  min-height: 24px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   color: var(--text-soft);
   font-size: 0.95rem;
   opacity: 0.9;
-  overflow-x: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .result {
-  min-height: 56px;
+  min-height: 54px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
-  font-size: clamp(2rem, 7vw, 2.8rem);
+  font-size: clamp(2.2rem, 8vw, 2.8rem);
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--text);
-  overflow-x: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .keypad {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px 12px;
+  gap: 12px;
 }
 
 .btn {
@@ -110,6 +120,7 @@ button {
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease;
+  touch-action: manipulation;
 }
 
 .btn:active {
@@ -133,185 +144,15 @@ button {
 }
 
 .danger {
-  background: linear-gradient(145deg, #f2b3bb, #e8a1ab);
-  color: var(--danger-text);
-}
-
-.equal {
-  background: var(--equal-bg);
-  color: var(--equal-text);
-  grid-column: 1 / -1;
-  border-radius: 24px;
-}
-
-.zero {
-  grid-column: span 2;
-  border-radius: 24px;
-}
-
-.toggle-btn {
-  font-size: 1.35rem;
-}
-
-.legend {
-  margin-top: 16px;
-  width: min(100%, 340px);
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  font-size: 0.72rem;
-  letter-spacing: 0.03em;
-  color: var(--text-soft);
-}
-
-@media (max-width: 360px) {
-  .calculator {
-    width: min(100%, 315px);
-    padding: 14px 12px 12px;
-  }
-
-  .btn {
-    min-height: 52px;
-  }
-}
-=======
-:root {
-  --page-bg: #dfe3f3;
-  --panel-bg: #e7e8f0;
-  --button-bg: #e7e7ef;
-  --button-soft: #e1e3ee;
-  --shadow-dark: rgba(164, 171, 201, 0.7);
-  --shadow-light: rgba(255, 255, 255, 0.92);
-  --text: #4e4d67;
-  --text-soft: #74778f;
-  --danger: #efa7b0;
-  --danger-text: #fff6f7;
-  --equal-bg: #48446d;
-  --equal-text: #f3f1ff;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  min-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--page-bg);
-  color: var(--text);
-}
-
-body {
-  min-height: 100vh;
   display: grid;
   place-items: center;
-}
-
-button {
-  font: inherit;
-}
-
-.page-shell {
-  width: min(100vw, 380px);
-  padding: 14px 10px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.calculator {
-  width: min(100%, 350px);
-  background: var(--panel-bg);
-  border-radius: 34px;
-  padding: 18px 16px 16px;
-  box-shadow:
-    12px 12px 26px var(--shadow-dark),
-    -10px -10px 20px var(--shadow-light);
-}
-
-.display-wrap {
-  min-height: 110px;
-  margin-bottom: 16px;
-  padding: 12px 12px 10px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow:
-    inset 8px 8px 18px rgba(255, 255, 255, 0.7),
-    inset -10px -10px 20px rgba(165, 170, 200, 0.35);
-}
-
-.expression {
-  min-height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  color: var(--text-soft);
-  font-size: 0.95rem;
-  opacity: 0.9;
-  overflow-x: auto;
-}
-
-.result {
-  min-height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: clamp(2rem, 7vw, 2.8rem);
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  color: var(--text);
-  overflow-x: auto;
-}
-
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px 12px;
-}
-
-.btn {
-  border: none;
-  border-radius: 26px;
-  min-height: 58px;
-  background: var(--button-bg);
-  color: var(--text);
-  font-size: clamp(1rem, 3.4vw, 1.4rem);
-  font-weight: 700;
-  box-shadow:
-    8px 8px 14px var(--shadow-dark),
-    -8px -8px 14px var(--shadow-light);
-  cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.btn:active {
-  transform: scale(0.98);
-  box-shadow:
-    inset 7px 7px 14px var(--shadow-dark),
-    inset -7px -7px 14px var(--shadow-light);
-}
-
-.soft {
-  color: var(--text-soft);
-  background: var(--button-soft);
-}
-
-.num {
-  color: var(--text);
-}
-
-.op {
-  color: var(--text-soft);
-}
-
-.danger {
   background: linear-gradient(145deg, #f2b3bb, #e8a1ab);
   color: var(--danger-text);
+}
+
+.danger svg {
+  width: 18px;
+  height: 18px;
 }
 
 .equal {
@@ -331,7 +172,6 @@ button {
 }
 
 .legend {
-  margin-top: 16px;
   width: min(100%, 340px);
   display: flex;
   justify-content: center;
@@ -352,4 +192,3 @@ button {
     min-height: 52px;
   }
 }
->>>>>>> a9828a5 (percentages works correctly)
